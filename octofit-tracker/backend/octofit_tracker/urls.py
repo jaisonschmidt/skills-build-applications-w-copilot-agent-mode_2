@@ -13,9 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.api_root, name='api_root'),
+    # Adicione rotas para users, teams, activities, leaderboard, workouts
+    path('users/', views.api_root, name='users'),
+    path('teams/', views.api_root, name='teams'),
+    path('activities/', views.api_root, name='activities'),
+    path('leaderboard/', views.api_root, name='leaderboard'),
+    path('workouts/', views.api_root, name='workouts'),
 ]
